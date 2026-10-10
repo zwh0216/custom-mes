@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mesproduction.mapper.ProductMapper">
+    <!--  按名称模糊查询产品列表  -->
+    <select id="findProductList" resultType="com.example.mesproduction.entity.Product">
+        select
+        id,
+        name,
+        create_time,
+        update_time,
+        version
+        from production
+        <where>
+            <if test="name != null and name != ''">
+                name like concat('%', #{name}, '%')
+            </if>
+        </where>
+        order by create_time desc
+    </select>
+</mapper>
