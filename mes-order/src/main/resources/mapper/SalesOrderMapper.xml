@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mesorder.mapper.SalesOrderMapper">
+    <!--  通过审批状体，及一系列查询条件查询销售订单  -->
+    <select id="findSalesOrderListByStatus">
+        select
+        id,
+        prod_order_id,
+        contract_code,
+        creator_id,
+        customer_name,
+        prod_id, amount,
+        create_time,
+        update_time,
+        deadline,
+        version,
+        status
+        from sales_order
+        <where>
+            status = #{status}
+            <if test="prodOrderId != null">
+                and prod_order_id = #{prodOrderId}
+            </if>
+        </where>
+    </select>
+
+</mapper>
+

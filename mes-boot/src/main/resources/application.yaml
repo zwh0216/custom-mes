@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/study-spring
+    # 数据库用户名[reference:8]
+    username: root
+    # 数据库密码[reference:9]
+    password: 1234
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  flyway:
+    locations: classpath:/mes-boot/db/migration
+    baseline-on-migrate: true
+    baseline-version: 202609150001
+    enabled: true
+
+mybatis:
+#  type-aliases-package: com.example.studyspring.model
+  # 指定 Mapper XML 映射文件的位置[reference:14][reference:15]
+  mapper-locations: classpath:mapper/**/*.xml
+  # MyBatis 全局配置
+  configuration:
+    # 开启驼峰命名自动映射（如：数据库字段 user_name -> 实体属性 userName）[reference:16][reference:17]
+    map-underscore-to-camel-case: true
+    # 开启日志，方便开发调试，可在控制台查看 SQL 语句[reference:18]
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+server:
+  port: 8088

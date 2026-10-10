@@ -1,0 +1,34 @@
+package com.example.mesorder.service.impl;
+
+
+import com.example.mesorder.converter.SalesOrderEntityConverter;
+import com.example.mesorder.converter.SalesOrderVoConverter;
+import com.example.mesorder.dto.InsertSalesOrderDto;
+import com.example.mesorder.dto.SalesOrderQueryDto;
+import com.example.mesorder.entity.SalesOrderEntity;
+import com.example.mesorder.mapper.SalesOrderMapper;
+import com.example.mesorder.service.SalesOrderService;
+import com.example.mesorder.vo.SalesOrderVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class SalesOrderServiceImpl implements SalesOrderService {
+    @Autowired
+    SalesOrderMapper salesOrderMapper;
+
+    @Override
+    public List<SalesOrderVo> findSalesOrderListByStatus(SalesOrderQueryDto query) {
+        List<SalesOrderEntity> list = salesOrderMapper.findSalesOrderListByStatus(query);
+
+        return list.stream().map(SalesOrderVoConverter::toVo).toList();
+    }
+
+    @Override
+    public boolean insertSalesOrder(InsertSalesOrderDto insertSalesOrderDto) {
+        SalesOrderEntity salesOrderEntity = SalesOrderEntityConverter.toEntity(insertSalesOrderDto);
+        return salesOrderMapper.insert(salesOrderEntity) > 0;
+    }
+}
