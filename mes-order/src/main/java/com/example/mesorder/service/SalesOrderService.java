@@ -12,5 +12,8 @@ public interface SalesOrderService {
     List<SalesOrderVo> findSalesOrderListByStatus(SalesOrderQueryDto query);
 
     // 添加销售订单
-    boolean insertSalesOrder(InsertSalesOrderDto insertSalesOrderDto);
+    SalesOrderVo insertSalesOrder(InsertSalesOrderDto insertSalesOrderDto);
+
+    // 删除销售订单
+    boolean deleteSalesOrder(String id);
 }

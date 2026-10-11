@@ -1,6 +1,7 @@
 package com.example.mesorder.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
+import com.example.mesorder.constant.ApprovalStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,6 +41,9 @@ public class SalesOrderEntity {
     // 售卖产品的数量
     private int amount;
 
+    // 当前销售订单的状态
+    private ApprovalStatusEnum status;
+
     // 销售订单的创建时间
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
@@ -52,6 +56,6 @@ public class SalesOrderEntity {
     private LocalDateTime deadline;
 
     // 版本
-    @TableLogic
+    @Version
     private int version;
 }

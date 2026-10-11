@@ -12,7 +12,11 @@ public class SalesOrderVoConverter {
         salesOrderVo.setAmount(salesOrderEntity.getAmount());
         salesOrderVo.setCreatorId(salesOrderEntity.getCreatorId().toString());
         salesOrderVo.setCreatorName(salesOrderEntity.getCreatorName());
-        salesOrderVo.setProdOrderId(salesOrderEntity.getProdOrderId().toString());
+
+        if (salesOrderEntity.getProdOrderId() != null) {
+            salesOrderVo.setProdOrderId(salesOrderEntity.getProdOrderId().toString());
+        }
+
         salesOrderVo.setProdId(salesOrderEntity.getProdId().toString());
         salesOrderVo.setProdName(salesOrderEntity.getProdName());
         salesOrderVo.setCustomerName(salesOrderEntity.getCustomerName());

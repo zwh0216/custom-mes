@@ -9,8 +9,8 @@ public class SalesOrderEntityConverter {
         SalesOrderEntity salesOrderEntity = new SalesOrderEntity();
         salesOrderEntity.setContractCode(insertSalesOrderDto.getContractCode());
         salesOrderEntity.setAmount(insertSalesOrderDto.getAmount());
-        salesOrderEntity.setCreatorId(insertSalesOrderDto.getCreatorId());
-        salesOrderEntity.setProdId(insertSalesOrderDto.getProdId());
+        salesOrderEntity.setCreatorId(Long.parseLong(insertSalesOrderDto.getCreatorId()));
+        salesOrderEntity.setProdId(Long.parseLong(insertSalesOrderDto.getProdId()));
         salesOrderEntity.setCustomerName(insertSalesOrderDto.getCustomerName());
         salesOrderEntity.setDeadline(insertSalesOrderDto.getDeadline());
         return salesOrderEntity;
