@@ -45,7 +45,6 @@ public class SalesOrderServiceImpl implements SalesOrderService {
     @Override
     public boolean deleteSalesOrder(String idStr) {
         long id = Long.parseLong(idStr);
-        log.debug("id ->" + id);
         return salesOrderMapper.deleteById(id) > 0;
     }
 }

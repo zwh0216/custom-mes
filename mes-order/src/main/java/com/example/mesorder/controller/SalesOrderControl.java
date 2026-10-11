@@ -39,7 +39,6 @@ public class SalesOrderControl {
 
     @DeleteMapping("/delete/{id}")
     public Result<Void> deleteSalesOrder(@PathVariable("id") String id) {
-        log.error("id -> " + id);
         if (salesOrderService.deleteSalesOrder(id)) {
             return Result.success(null, "删除成功");
         }
