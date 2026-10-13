@@ -3,16 +3,12 @@ package com.example.mesorder.constant;
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
-@Getter
 @AllArgsConstructor
 public enum ApprovalStatusEnum {
-    // 待审批
-    Pending("Pending", "待审批"), // 审批中
-    Approving("Approving", "待审批"), // 已审批
-    Approved("Approved", "待审批"), // 待我审批
-    WaitForMyApprove("WaitForMyApprove", "待审批");
+    Pending("Pending", "待审批"), // 待审批
+    Approving("Approving", "审批中"), // 审批中
+    Approved("Approved", "已审批"); // 已审批
 
     // 审批状态的value
     @EnumValue
@@ -31,5 +27,4 @@ public enum ApprovalStatusEnum {
 
         throw new IllegalArgumentException("无效的订单状态：" + value);
     }
-
 }

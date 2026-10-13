@@ -24,6 +24,15 @@
             <if test="prodOrderId != null">
                 and prod_order_id = #{prodOrderId}
             </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="contractCode!= null">
+                and contract_code like concat("%", #{contractCode}, "%")
+            </if>
+            <if test="customerName!= null">
+                and customer_name like concat("%", #{customerName}, "%")
+            </if>
         </where>
     </select>
 

@@ -1,6 +1,6 @@
 package com.example.mesorder.dto;
 
-import com.example.mesorder.constant.ApprovalStatusEnum;
+import com.example.mesorder.constant.SalesOrderTypeEnum;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 public class SalesOrderQueryDto {
     // 审批状态
     @NotNull(message = "审批状态不能为空")
-    private ApprovalStatusEnum status;
+    private SalesOrderTypeEnum status;
 
     // 生产订单的id
     private Long prodOrderId;
